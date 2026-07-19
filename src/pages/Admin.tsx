@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Shield, Key, Plus, Edit, Trash2, Database, Upload, Check, AlertTriangle, RefreshCw, Layers } from 'lucide-react';
+import { Shield, Key, Plus, Edit, Trash2, Database, Upload, Check, AlertTriangle, RefreshCw, Layers, User, Lock } from 'lucide-react';
 import { fetchDepartments, fetchSemesters, fetchSubjects, createOrUpdateSubject, deleteSubject, importSubjectsCSV } from '../services/subjectService';
 import { fetchGradeRules, updateGradeRules } from '../services/gradeService';
 import { Department, Semester, Subject, GradeRule, SubjectType } from '../types/database';
