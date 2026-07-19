@@ -75,10 +75,10 @@ export default function Admin() {
     setAuthError(null);
 
     // Client-side credential check (admin panel for static Cloudflare Pages deployment)
-    if (username === 'admin' && password === 'admin123') {
+    if (username === 'admin' && password === 'cgpa@987') {
       setIsAuthenticated(true);
     } else {
-      setAuthError('Invalid administrator credentials. Use admin / admin123.');
+      setAuthError('Invalid administrator credentials.');
     }
   };
 
@@ -162,41 +162,44 @@ export default function Admin() {
 
   if (!isAuthenticated) {
     return (
-      <div id="admin-login-view" className="max-w-md mx-auto my-12 p-6 sm:p-8 bg-white border-2 border-slate-200 rounded-2xl shadow-lg space-y-6 animate-fade-in">
+      <div id="admin-auth-card" className="max-w-md mx-auto my-12 p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-xl space-y-6">
         <div className="text-center space-y-2">
-          <div className="inline-flex p-3 bg-amber-500 rounded-2xl text-[#0f2d59] shadow-md">
-            <Shield className="h-8 w-8" />
+          <div className="mx-auto w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center border border-amber-200">
+            <Lock className="h-6 w-6 text-amber-600" />
           </div>
-          <h3 className="font-sans font-black text-xl text-slate-900 tracking-tight">
-            Administrator Gateway
-          </h3>
-          <p className="text-xs text-slate-500 font-sans">
-            Authentication required to modify course syllabi and grade configurations.
+          <h3 className="font-sans font-black text-xl text-slate-800 tracking-tight">Database Administrator Login</h3>
+          <p className="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
+            Unauthorized access is prohibited. Sign in using college coordinator credentials.
           </p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">
-          <div className="space-y-1">
-            <label className="text-xs font-mono font-bold text-slate-500 uppercase">Admin Username</label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="e.g. admin"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-[#0f2d59] font-sans"
-              required
-            />
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-xs font-mono font-bold text-slate-500 uppercase">Access Code / Password</label>
+          <div className="space-y-1.5">
+            <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Username</label>
             <div className="relative">
               <input
+                id="admin-username-input"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="college_coordinator"
+                className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-sans focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all"
+                required
+              />
+              <User className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Password</label>
+            <div className="relative">
+              <input
+                id="admin-password-input"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-4 py-3 pl-10 border-2 border-slate-200 rounded-xl focus:outline-none focus:border-[#0f2d59] font-mono"
+                className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-sans focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all"
                 required
               />
               <Key className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
@@ -217,10 +220,6 @@ export default function Admin() {
             Access Control Panel
           </button>
         </form>
-
-        <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-[11px] text-slate-500 font-sans leading-normal">
-          <strong>💡 Developer Notice:</strong> For quick preview and evaluation in the AI Studio environment, authenticate with Username: <code className="bg-slate-200 px-1 py-0.5 rounded font-mono text-slate-700 font-bold">admin</code> and Password: <code className="bg-slate-200 px-1 py-0.5 rounded font-mono text-slate-700 font-bold">admin123</code>.
-        </div>
       </div>
     );
   }

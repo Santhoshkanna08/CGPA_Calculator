@@ -224,14 +224,14 @@ async function startServer() {
   app.post('/api/admin/login', (req, res) => {
     const { username, password } = req.body;
     // Standard bypass for preview testing if Supabase Auth is not fully wired yet
-    if (username === 'admin' && password === 'admin123') {
+    if (username === 'admin' && password === 'cgpa@987') {
       return res.json({
         success: true,
         user: { email: 'work.santhosh.fsd@gmail.com', role: 'admin' },
         token: 'dev-token-secret-12345',
       });
     }
-    return res.status(401).json({ error: 'Invalid administrator credentials. Try admin/admin123 for development testing.' });
+    return res.status(401).json({ error: 'Invalid administrator credentials.' });
   });
 
   // ==========================================
