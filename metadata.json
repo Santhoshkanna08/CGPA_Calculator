@@ -1,0 +1,6 @@
+{
+  "name": "KCET CGPA Calculator 2.0",
+  "description": "Official curriculum-based GPA and CGPA Calculator for Kamaraj College of Engineering and Technology (KCET) with mark-based grade conversion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

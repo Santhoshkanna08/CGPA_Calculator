@@ -1,0 +1,11 @@
+regulation,department,semester,subject_code,subject_name,credits,subject_type
+R21,CSE,1,MA3151,Matrices and Calculus,4,THEORY
+R21,CSE,1,PH3151,Engineering Physics,3,THEORY
+R21,CSE,1,CY3151,Engineering Chemistry,3,THEORY
+R21,CSE,1,GE3151,Problem Solving and Python Programming,3,THEORY
+R21,CSE,1,GE3171,Problem Solving and Python Programming Laboratory,2,PRACTICAL
+R21,CSE,1,BS3171,Physics and Chemistry Laboratory,2,PRACTICAL
+R21,ECE,2,EC3251,Circuits and Networks,3,THEORY
+R21,ECE,2,EC3271,Circuits and Devices Laboratory,2,PRACTICAL
+R21,IT,3,IT3301,Data Structures,3,THEORY
+R21,AIDS,4,AD3401,Machine Learning,4,THEORY
