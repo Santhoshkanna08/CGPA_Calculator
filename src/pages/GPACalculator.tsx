@@ -488,14 +488,6 @@ export default function GPACalculator() {
                   Select the earned grade for each theory and practical course below.
                 </p>
               </div>
-              <button
-                id="btn-add-custom-subject"
-                onClick={handleAddCustomSubject}
-                className="flex items-center space-x-1 px-3 py-2 bg-[#0f2d59] text-white hover:bg-slate-800 text-xs font-sans font-bold rounded-lg transition-all cursor-pointer"
-              >
-                <Plus className="h-3.5 w-3.5" />
-                <span>Add Course</span>
-              </button>
             </div>
 
             {subjectInputs.length === 0 ? (
