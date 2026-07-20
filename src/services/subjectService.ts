@@ -153,7 +153,12 @@ export async function createOrUpdateSubject(subject: Partial<Subject>): Promise<
     .select()
     .single();
 
-  if (error) throw new Error(error.message || 'Failed to save subject');
+  if (error) {
+    if (error.code === '23505' || error.message?.includes('subjects_regulation_id_department_id_semester_id_subject_co_key')) {
+      throw new Error('A course with this subject code already exists for the selected regulation, department, and semester.');
+    }
+    throw new Error(error.message || 'Failed to save subject');
+  }
   return data as Subject;
 }
 

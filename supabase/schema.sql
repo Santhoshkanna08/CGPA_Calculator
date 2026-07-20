@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS grade_rules (
     grade VARCHAR(10) NOT NULL, -- e.g. 'S', 'A+'
     minimum_mark INTEGER NOT NULL CHECK (minimum_mark >= 0 AND minimum_mark <= 100),
     maximum_mark INTEGER NOT NULL CHECK (maximum_mark >= 0 AND maximum_mark <= 100),
-    grade_point INTEGER NOT NULL CHECK (grade_point >= 0 AND grade_point <= 10),
+    grade_point NUMERIC(3, 1) NOT NULL CHECK (grade_point >= 0 AND grade_point <= 10),
     is_pass BOOLEAN DEFAULT true,
     UNIQUE (regulation_id, grade),
     CONSTRAINT valid_mark_range CHECK (minimum_mark <= maximum_mark)

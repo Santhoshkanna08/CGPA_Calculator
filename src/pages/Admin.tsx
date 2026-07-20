@@ -534,8 +534,9 @@ export default function Admin() {
                       <label className="text-[10px] font-mono text-slate-400 font-bold uppercase">Grade Pt</label>
                       <input
                         type="number"
+                        step="0.1"
                         value={rule.grade_point}
-                        onChange={(e) => handleGradeRuleChange(idx, 'grade_point', parseInt(e.target.value, 10))}
+                        onChange={(e) => handleGradeRuleChange(idx, 'grade_point', parseFloat(e.target.value) || 0)}
                         className="w-full px-2.5 py-1.5 text-center font-mono font-bold text-sm bg-slate-50 border border-slate-300 rounded-md focus:outline-none"
                       />
                     </div>
