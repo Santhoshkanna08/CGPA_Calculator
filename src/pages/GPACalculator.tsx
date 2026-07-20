@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
 import { BookOpen, HelpCircle, RefreshCw, Sparkles, Plus, Trash2, ArrowLeft, ArrowRight } from 'lucide-react';
-import { fetchDepartments, fetchSemesters, fetchSubjects } from '../services/subjectService';
+import { fetchDepartments, fetchSemesters, fetchSubjects, fetchDepartmentSubjects } from '../services/subjectService';
 import { fetchGradeRules, saveCalculation } from '../services/gradeService';
 import { Department, Semester, Subject, GradeRule, SubjectType } from '../types/database';
 import { SubjectInput, CalculatedSubjectResult } from '../types/subject';
@@ -78,6 +78,23 @@ export default function GPACalculator() {
       }
     }
   }, [metadataLoading, deptId, departments]);
+
+  const [seededSemesters, setSeededSemesters] = useState<Set<string>>(new Set());
+
+  // Load which semesters have subjects seeded for this department
+  useEffect(() => {
+    if (!deptId) return;
+    async function loadSeededSemesters() {
+      try {
+        const subjects = await fetchDepartmentSubjects('R21', deptId);
+        const semIds = new Set(subjects.map(s => s.semester_id));
+        setSeededSemesters(semIds);
+      } catch (err) {
+        console.error('Error loading seeded semesters:', err);
+      }
+    }
+    loadSeededSemesters();
+  }, [deptId]);
 
   // Load Subjects when department or semester changes
   useEffect(() => {
@@ -237,14 +254,8 @@ export default function GPACalculator() {
   const theorySubjects = subjectInputs.filter((s) => s.subjectType === 'THEORY' || s.subjectType === 'ELECTIVE');
   const practicalSubjects = subjectInputs.filter((s) => s.subjectType === 'PRACTICAL' || s.subjectType === 'OTHER');
 
-  const hasSeededData = (deptCode: string, semNum: number) => {
-    const code = deptCode.toUpperCase();
-    if (code === 'CSE' && (semNum === 1 || semNum === 2)) return true;
-    if (code === 'ECE' && (semNum === 1 || semNum === 2)) return true;
-    if (code === 'IT' && (semNum === 3)) return true;
-    if (code === 'AI&DS' && (semNum === 2 || semNum === 4)) return true;
-    if (code === 'AIDS' && (semNum === 2 || semNum === 4)) return true;
-    return false;
+  const hasSeededData = (semId: string) => {
+    return seededSemesters.has(semId);
   };
 
   if (metadataLoading) {
@@ -350,7 +361,7 @@ export default function GPACalculator() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {semesters.map((sem) => {
-              const hasData = currentDept ? hasSeededData(currentDept.department_code, sem.semester_number) : false;
+              const hasData = hasSeededData(sem.id);
               return (
                 <button
                   key={sem.id}
@@ -442,7 +453,7 @@ export default function GPACalculator() {
         <span className="h-6 w-[1px] bg-slate-200 flex-shrink-0" />
         {semesters.map((sem) => {
           const isActive = sem.id === currentSemesterId;
-          const isSeeded = currentDept ? hasSeededData(currentDept.department_code, sem.semester_number) : false;
+          const isSeeded = hasSeededData(sem.id);
           return (
             <button
               key={sem.id}

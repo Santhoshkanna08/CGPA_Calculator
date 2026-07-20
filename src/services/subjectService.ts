@@ -142,6 +142,31 @@ export async function fetchSubjects(
   );
 }
 
+export async function fetchDepartmentSubjects(
+  regulationId: string,
+  departmentId: string
+): Promise<Subject[]> {
+  if (isSupabaseConfigured && supabase) {
+    const { data, error } = await supabase
+      .from('subjects')
+      .select('*')
+      .eq('is_active', true)
+      .eq('regulation_id', regulationId)
+      .eq('department_id', departmentId);
+
+    if (!error && data) return data as Subject[];
+    console.warn('[subjectService] Supabase error fetching department subjects:', error);
+  }
+
+  // Static fallback filter
+  return FALLBACK_SUBJECTS.filter(
+    s =>
+      s.is_active &&
+      s.regulation_id === regulationId &&
+      s.department_id === departmentId
+  );
+}
+
 export async function createOrUpdateSubject(subject: Partial<Subject>): Promise<Subject> {
   if (!isSupabaseConfigured || !supabase) {
     throw new Error('Supabase is not configured. Admin features require a live database connection.');
