@@ -44,28 +44,122 @@ INSERT INTO grade_rules (regulation_id, grade, minimum_mark, maximum_mark, grade
 ('R21', 'RA', 0, 50, 0, false)
 ON CONFLICT (regulation_id, grade) DO NOTHING;
 
--- 5. Insert Sample Subjects (Regulation 2021 - Semesters I & II)
--- Semester I Subjects (Common across many departments)
+-- 5. Insert Subjects
+-- Sem 1 & Sem 2 are COMMON across all departments (ECE subject list)
+-- ECE Sem 1 subjects applied to ALL departments
 INSERT INTO subjects (regulation_id, department_id, semester_id, subject_code, subject_name, credits, subject_type) VALUES
--- CSE Sem 1
-('R21', 'CSE', 'sem-1', 'IP3115', 'Induction Programme', 0, 'OTHER'),
-('R21', 'CSE', 'sem-1', 'HS3151', 'Professional English I', 3, 'THEORY'),
-('R21', 'CSE', 'sem-1', 'MA3151', 'Matrices and Calculus', 4, 'THEORY'),
-('R21', 'CSE', 'sem-1', 'PH3151', 'Engineering Physics', 3, 'THEORY'),
-('R21', 'CSE', 'sem-1', 'CY3151', 'Engineering Chemistry', 3, 'THEORY'),
-('R21', 'CSE', 'sem-1', 'GE3151', 'Problem Solving and Python Programming', 3, 'THEORY'),
-('R21', 'CSE', 'sem-1', 'GE3171', 'Problem Solving and Python Programming Laboratory', 2, 'PRACTICAL'),
-('R21', 'CSE', 'sem-1', 'BS3171', 'Physics and Chemistry Laboratory', 2, 'PRACTICAL'),
 
--- CSE Sem 2
-('R21', 'CSE', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
-('R21', 'CSE', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
-('R21', 'CSE', 'sem-2', 'PH3256', 'Physics for Information Science', 3, 'THEORY'),
-('R21', 'CSE', 'sem-2', 'BE3251', 'Basic Electrical and Electronics Engineering', 3, 'THEORY'),
-('R21', 'CSE', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
-('R21', 'CSE', 'sem-2', 'CS3251', 'Programming in C', 3, 'THEORY'),
-('R21', 'CSE', 'sem-2', 'CS3271', 'Programming in C Laboratory', 2, 'PRACTICAL'),
-('R21', 'CSE', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
+-- ===================== SEM 1 (ALL DEPARTMENTS - ECE Common) =====================
+
+-- ECE Sem 1
+('R21', 'ECE', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'ECE', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'ECE', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'ECE', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'ECE', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'ECE', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'ECE', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'ECE', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'ECE', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'ECE', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- CSE Sem 1
+('R21', 'CSE', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'CSE', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'CSE', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'CSE', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'CSE', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'CSE', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'CSE', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'CSE', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'CSE', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'CSE', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- IT Sem 1
+('R21', 'IT', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'IT', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'IT', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'IT', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'IT', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'IT', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'IT', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'IT', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'IT', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'IT', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- AIDS Sem 1
+('R21', 'AIDS', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'AIDS', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'AIDS', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'AIDS', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'AIDS', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'AIDS', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'AIDS', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'AIDS', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'AIDS', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'AIDS', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- EEE Sem 1
+('R21', 'EEE', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'EEE', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'EEE', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'EEE', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'EEE', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'EEE', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'EEE', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'EEE', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'EEE', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'EEE', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- MECH Sem 1
+('R21', 'MECH', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'MECH', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'MECH', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'MECH', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'MECH', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'MECH', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'MECH', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'MECH', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'MECH', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'MECH', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- MTRE Sem 1
+('R21', 'MTRE', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'MTRE', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'MTRE', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'MTRE', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'MTRE', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'MTRE', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'MTRE', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'MTRE', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'MTRE', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'MTRE', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- BIOTECH Sem 1
+('R21', 'BIOTECH', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'BIOTECH', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'BIOTECH', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'BIOTECH', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'BIOTECH', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'BIOTECH', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'BIOTECH', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'BIOTECH', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'BIOTECH', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'BIOTECH', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- CIVIL Sem 1
+('R21', 'CIVIL', 'sem-1', 'SH2101', 'Technical English', 3, 'THEORY'),
+('R21', 'CIVIL', 'sem-1', 'MA2101', 'Matrices and Differential Calculus', 4, 'THEORY'),
+('R21', 'CIVIL', 'sem-1', 'PH2101', 'Engineering Physics', 3, 'THEORY'),
+('R21', 'CIVIL', 'sem-1', 'CY2101', 'Engineering Chemistry', 3, 'THEORY'),
+('R21', 'CIVIL', 'sem-1', 'EM2101', 'Coding Techniques - I', 3, 'THEORY'),
+('R21', 'CIVIL', 'sem-1', 'GE2101', 'Principles of Engineering', 3, 'THEORY'),
+('R21', 'CIVIL', 'sem-1', 'GE2102', 'Heritage of Tamils', 1, 'THEORY'),
+('R21', 'CIVIL', 'sem-1', 'EM2102', 'Coding Techniques - I Laboratory', 1, 'PRACTICAL'),
+('R21', 'CIVIL', 'sem-1', 'MA2102', 'Mathematics Laboratory', 1, 'PRACTICAL'),
+('R21', 'CIVIL', 'sem-1', 'PH2102', 'Physics Laboratory', 1, 'PRACTICAL'),
+
+-- ===================== SEM 2 (ALL DEPARTMENTS - ECE Common) =====================
 
 -- ECE Sem 2
 ('R21', 'ECE', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
@@ -76,12 +170,75 @@ INSERT INTO subjects (regulation_id, department_id, semester_id, subject_code, s
 ('R21', 'ECE', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
 ('R21', 'ECE', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
 
+-- CSE Sem 2
+('R21', 'CSE', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
+('R21', 'CSE', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
+('R21', 'CSE', 'sem-2', 'EC3251', 'Circuits and Networks', 3, 'THEORY'),
+('R21', 'CSE', 'sem-2', 'EC3252', 'Electronic Devices', 3, 'THEORY'),
+('R21', 'CSE', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
+('R21', 'CSE', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
+('R21', 'CSE', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
+
+-- IT Sem 2
+('R21', 'IT', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
+('R21', 'IT', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
+('R21', 'IT', 'sem-2', 'EC3251', 'Circuits and Networks', 3, 'THEORY'),
+('R21', 'IT', 'sem-2', 'EC3252', 'Electronic Devices', 3, 'THEORY'),
+('R21', 'IT', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
+('R21', 'IT', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
+('R21', 'IT', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
+
 -- AIDS Sem 2
 ('R21', 'AIDS', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
 ('R21', 'AIDS', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
-('R21', 'AIDS', 'sem-2', 'PH3256', 'Physics for Information Science', 3, 'THEORY'),
-('R21', 'AIDS', 'sem-2', 'AD3251', 'Data Structures Design', 3, 'THEORY'),
+('R21', 'AIDS', 'sem-2', 'EC3251', 'Circuits and Networks', 3, 'THEORY'),
+('R21', 'AIDS', 'sem-2', 'EC3252', 'Electronic Devices', 3, 'THEORY'),
 ('R21', 'AIDS', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
-('R21', 'AIDS', 'sem-2', 'AD3271', 'Data Structures Design Laboratory', 2, 'PRACTICAL'),
-('R21', 'AIDS', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL')
+('R21', 'AIDS', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
+('R21', 'AIDS', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
+
+-- EEE Sem 2
+('R21', 'EEE', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
+('R21', 'EEE', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
+('R21', 'EEE', 'sem-2', 'EC3251', 'Circuits and Networks', 3, 'THEORY'),
+('R21', 'EEE', 'sem-2', 'EC3252', 'Electronic Devices', 3, 'THEORY'),
+('R21', 'EEE', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
+('R21', 'EEE', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
+('R21', 'EEE', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
+
+-- MECH Sem 2
+('R21', 'MECH', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
+('R21', 'MECH', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
+('R21', 'MECH', 'sem-2', 'EC3251', 'Circuits and Networks', 3, 'THEORY'),
+('R21', 'MECH', 'sem-2', 'EC3252', 'Electronic Devices', 3, 'THEORY'),
+('R21', 'MECH', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
+('R21', 'MECH', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
+('R21', 'MECH', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
+
+-- MTRE Sem 2
+('R21', 'MTRE', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
+('R21', 'MTRE', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
+('R21', 'MTRE', 'sem-2', 'EC3251', 'Circuits and Networks', 3, 'THEORY'),
+('R21', 'MTRE', 'sem-2', 'EC3252', 'Electronic Devices', 3, 'THEORY'),
+('R21', 'MTRE', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
+('R21', 'MTRE', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
+('R21', 'MTRE', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
+
+-- BIOTECH Sem 2
+('R21', 'BIOTECH', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
+('R21', 'BIOTECH', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
+('R21', 'BIOTECH', 'sem-2', 'EC3251', 'Circuits and Networks', 3, 'THEORY'),
+('R21', 'BIOTECH', 'sem-2', 'EC3252', 'Electronic Devices', 3, 'THEORY'),
+('R21', 'BIOTECH', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
+('R21', 'BIOTECH', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
+('R21', 'BIOTECH', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL'),
+
+-- CIVIL Sem 2
+('R21', 'CIVIL', 'sem-2', 'HS3251', 'Professional English II', 3, 'THEORY'),
+('R21', 'CIVIL', 'sem-2', 'MA3251', 'Statistics and Numerical Methods', 4, 'THEORY'),
+('R21', 'CIVIL', 'sem-2', 'EC3251', 'Circuits and Networks', 3, 'THEORY'),
+('R21', 'CIVIL', 'sem-2', 'EC3252', 'Electronic Devices', 3, 'THEORY'),
+('R21', 'CIVIL', 'sem-2', 'GE3251', 'Engineering Graphics', 4, 'THEORY'),
+('R21', 'CIVIL', 'sem-2', 'EC3271', 'Circuits and Devices Laboratory', 2, 'PRACTICAL'),
+('R21', 'CIVIL', 'sem-2', 'GE3271', 'Engineering Practices Laboratory', 2, 'PRACTICAL')
 ON CONFLICT (regulation_id, department_id, semester_id, subject_code) DO NOTHING;
