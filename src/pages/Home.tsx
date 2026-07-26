@@ -31,9 +31,9 @@ export default function Home() {
       <div className="text-center space-y-5">
         <div className="relative inline-flex items-center justify-center p-0.5 mb-1">
           {/* Animated glow background */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-amber-400 via-amber-300 to-[#0f2d59] rounded-3xl blur-md opacity-45 animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-amber-400 via-amber-300 to-[#0f2d59] rounded-full blur-md opacity-45 animate-pulse" />
           
-          <div className="relative p-5 bg-gradient-to-br from-[#0f2d59] to-[#1a4a87] rounded-3xl text-amber-400 shadow-2xl border-2 border-amber-400/80 transform hover:scale-105 transition-all duration-300">
+          <div className="relative p-5 bg-gradient-to-br from-[#0f2d59] to-[#1a4a87] rounded-full text-amber-400 shadow-2xl border-2 border-amber-400/80 transform hover:scale-105 transition-all duration-300">
             <GraduationCap className="h-12 w-12 sm:h-14 sm:w-14 filter drop-shadow-[0_2px_5px_rgba(245,158,11,0.4)]" />
             
             {/* Version Badge Layered */}
