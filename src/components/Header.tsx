@@ -19,9 +19,9 @@ export default function Header() {
           <Link id="logo-link" to="/" className="flex items-center space-x-3.5 group">
             <div className="relative flex items-center justify-center">
               {/* Outer glowing ring */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-amber-400 to-amber-600 rounded-xl opacity-30 blur-[3px] group-hover:scale-110 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-400 to-amber-600 opacity-30 blur-[3px] group-hover:scale-110 transition-transform duration-300" />
               {/* Inner container */}
-              <div className="relative p-2.5 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-xl text-[#0f2d59] shadow-inner transform group-hover:rotate-6 transition-all duration-300">
+              <div className="relative p-2.5 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-[#0f2d59] shadow-inner transform group-hover:rotate-6 transition-all duration-300">
                 <div className="absolute -top-1 -right-1 bg-[#0f2d59] text-amber-400 text-[9px] font-black font-mono px-1 rounded-full border border-amber-400 shadow-sm scale-90">
                   2.0
                 </div>
