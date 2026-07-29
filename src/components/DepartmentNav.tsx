@@ -90,7 +90,7 @@ export default function DepartmentNav() {
           <span className="h-6 w-[1px] bg-slate-500 opacity-50 mx-1 flex-shrink-0" />
 
           <NavLink
-            to="/admin"
+            to="/manage"
             className={({ isActive }) =>
               `flex items-center space-x-1.5 px-4 py-2 rounded-md font-sans text-sm font-medium transition-all whitespace-nowrap ${
                 isActive

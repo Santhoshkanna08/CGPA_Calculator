@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import DepartmentNav from './components/DepartmentNav';
 import Home from './pages/Home';
@@ -23,7 +23,9 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/gpa/:deptId" element={<GPACalculator />} />
             <Route path="/cgpa" element={<CGPACalculator />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/manage" element={<Admin />} />
+            <Route path="/admin" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
 
